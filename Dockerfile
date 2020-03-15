@@ -6,8 +6,8 @@ FROM arm32v7/debian
 
 LABEL maintainer="Nick Gregory <docker@openenterprise.co.uk>"
 
-ARG BAREOS_VERSION="18.2.6"
-ARG BAREOS_SHA256="43ff0546d4d5486bc70db90ccb7fb1f6a3ac3f9b7293de010d2c300b548056d8"
+ARG BAREOS_VERSION="19.2.6"
+ARG BAREOS_SHA256="688505f8bc45b919dfd1c8bdcd448b4bdbe1ea2d1755358a94d702e9aff8482b"
 
 RUN apt-get -y update \
     && apt-get -y dist-upgrade \
@@ -26,7 +26,7 @@ LABEL build=${BAREOS_VERSION}
 LABEL image=bareos
 RUN cd /tmp \
     && cd /tmp/bareos-Release-${BAREOS_VERSION} \ 
-    && cp -a core/platforms/packaging/bareos.changes core/debian/changelog \
+    && printf "bareos (19.0.0~pre-1) unstable; urgency=low\n\n  * dummy\n\n -- nobody <nobody@example.com>  Tue, 01 Jan 2019 00:00:00 +0000\n\n" > core/debian/changelog \
     && sh .travis/travis_before_script.sh
 
 STOPSIGNAL SIGTERM
