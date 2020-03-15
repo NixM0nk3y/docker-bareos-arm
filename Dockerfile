@@ -26,7 +26,7 @@ LABEL build=${BAREOS_VERSION}
 LABEL image=bareos
 RUN cd /tmp \
     && cd /tmp/bareos-Release-${BAREOS_VERSION} \ 
-    && printf "bareos (19.0.0~pre-1) unstable; urgency=low\n\n  * dummy\n\n -- nobody <nobody@example.com>  Tue, 01 Jan 2019 00:00:00 +0000\n\n" > core/debian/changelog \
+    && printf "bareos (19.2.6~openenterprise-1) unstable; urgency=low\n\n  * dummy\n\n -- nobody <nobody@example.com>  Tue, 01 Jan 2019 00:00:00 +0000\n\n" > core/debian/changelog \
     && sh .travis/travis_before_script.sh
 
 STOPSIGNAL SIGTERM
