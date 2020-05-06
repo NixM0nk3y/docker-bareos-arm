@@ -2,12 +2,12 @@
 #
 #
 
-FROM arm32v7/debian
+FROM arm32v7/debian:buster
 
 LABEL maintainer="Nick Gregory <docker@openenterprise.co.uk>"
 
-ARG BAREOS_VERSION="19.2.6"
-ARG BAREOS_SHA256="688505f8bc45b919dfd1c8bdcd448b4bdbe1ea2d1755358a94d702e9aff8482b"
+ARG BAREOS_VERSION="18.2.8"
+ARG BAREOS_SHA256="705e15d3f30e8f656c805e3051e429c26217ffefde8900d1fdd0f2a25b7698f6"
 
 RUN apt-get -y update \
     && apt-get -y dist-upgrade \
