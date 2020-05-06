@@ -2,12 +2,12 @@
 #
 #
 
-FROM arm32v7/debian
+FROM arm32v7/debian:buster
 
 LABEL maintainer="Nick Gregory <docker@openenterprise.co.uk>"
 
-ARG BAREOS_VERSION="19.2.6"
-ARG BAREOS_SHA256="688505f8bc45b919dfd1c8bdcd448b4bdbe1ea2d1755358a94d702e9aff8482b"
+ARG BAREOS_VERSION="19.2.7"
+ARG BAREOS_SHA256="283c1fa9cb6a96b1f09b402cd507ecd8bf798458bafcbfad867da08d33d12653"
 
 RUN apt-get -y update \
     && apt-get -y dist-upgrade \
@@ -26,7 +26,7 @@ LABEL build=${BAREOS_VERSION}
 LABEL image=bareos
 RUN cd /tmp \
     && cd /tmp/bareos-Release-${BAREOS_VERSION} \ 
-    && printf "bareos (19.2.6~openenterprise-1) unstable; urgency=low\n\n  * dummy\n\n -- nobody <nobody@example.com>  Tue, 01 Jan 2019 00:00:00 +0000\n\n" > core/debian/changelog \
+    && printf "bareos (19.2.7~openenterprise-1) unstable; urgency=low\n\n  * dummy\n\n -- nobody <nobody@example.com>  Tue, 01 Jan 2019 00:00:00 +0000\n\n" > core/debian/changelog \
     && sh .travis/travis_before_script.sh
 
 STOPSIGNAL SIGTERM
